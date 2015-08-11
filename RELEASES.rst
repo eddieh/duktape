@@ -1047,6 +1047,10 @@ Planned
 * Add example debug transport with local dvalue encoding and decoding, also
   provides a C example for encoding and decoding dvalues
 
+* Fix object environment handling to allow Proxy object as a binding
+  target, so that a Proxy can be used in a with statement or as the
+  duk_set_global_object() argument (GH-221)
+
 * Fix accidental ToString(this) coercion in Error.prototype.fileName and
   Error.prototype.lineNumber which was an issue if you replaced
   Error.prototype.toString with a function that accessed the 'lineNumber'
