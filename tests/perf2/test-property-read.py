@@ -1,0 +1,20 @@
+#
+# Basic property read performance.
+#
+
+import time
+
+obj = { 'xxx1': 1, 'xxx2': 2, 'xxx3': 3, 'xxx4': 4, 'foo': 123 }
+i = 0
+
+start = time.clock()
+
+# begin test
+while i < 1e8:
+	ign = obj['foo']
+	i += 1
+# end test
+
+duration = int((time.clock() - start) * 1000)
+
+print duration

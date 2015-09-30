@@ -16,7 +16,7 @@ if [ "x$RET" != "x0" ]; then
 	sleep 1
 fi
 
-NODEJS_VERSION=`nodejs -v 2>/dev/null`
+NODEJS_VERSION=`node -v 2>/dev/null`
 if [ $? != 0 ]; then
 	echo "*** Missing NodeJS:"
 	echo "  $ sudo apt-get install nodejs nodejs-legacy npm  # may also be 'node'"

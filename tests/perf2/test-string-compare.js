@@ -1,0 +1,81 @@
+/*
+ *  Test string comparison.
+ */
+
+if (typeof window == 'undefined') window = {}
+if (!window.performance) window.performance = {}
+window.performance.now = window.performance.now || Date.now
+
+if (typeof print != 'undefined') log = print
+else log = console.log
+
+function test () {
+  var start
+  var duration
+
+  var a, b, c, d, e, f, g;
+  var i;
+
+  function mk(n) {
+    var res = [];
+    for (var i = 0; i < n; i++) { res[i] = 'x'; }
+    res = res.join('');
+    //log(res.length);
+    return res;
+  }
+
+  a = mk(0);
+  b = mk(1);
+  c = mk(16);
+  d = mk(256);
+  e = mk(4096);
+  f = mk(65536);
+  g = mk(1048576);
+
+  start = window.performance.now()
+
+  // begin test
+  for (i = 0; i < 1e7; i++) {
+    void (a == a);
+    void (a == b);
+    void (a == c);
+    void (a == d);
+    void (a == e);
+    void (a == f);
+    void (a == g);
+
+    void (b == b);
+    void (b == c);
+    void (b == d);
+    void (b == e);
+    void (b == f);
+    void (b == g);
+
+    void (c == c);
+    void (c == d);
+    void (c == e);
+    void (c == f);
+    void (c == g);
+
+    void (d == d);
+    void (d == e);
+    void (d == f);
+    void (d == g);
+
+    void (e == e);
+    void (e == f);
+    void (e == g);
+
+    void (f == f);
+    void (f == g);
+
+    void (g == g);
+  }
+  // end test
+
+  duration = window.performance.now() - start
+
+  log(duration)
+}
+
+test()

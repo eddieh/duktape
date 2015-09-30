@@ -52,3 +52,4 @@ debugger/static/jquery-ui.min.css
 debugger/static/jquery-ui.min.js
 debugger/static/reset.css
 debugger/static/socket.io-1.2.0.js
+util/perf/results/
